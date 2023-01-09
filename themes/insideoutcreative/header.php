@@ -74,35 +74,58 @@ echo '</div>';
 
 echo '</header>';
 
-echo '<section class="hero position-relative">';
+echo '<section class="hero position-relative pt-5 pb-5">';
+
+echo wp_get_attachment_image(43,'full','',['class'=>'h-100 position-absolute','style'=>'top:0;left:5%;object-fit:cover;width:90%;']);
+
 $globalPlaceholderImg = get_field('global_placeholder_image','options');
-if(is_page()){
 if(has_post_thumbnail()){
-the_post_thumbnail('full', array('class' => 'w-100 h-100 bg-img position-absolute'));
+the_post_thumbnail('full', array('class' => 'w-100 h-100 position-relative'));
 } else {
-echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
-}
-} else {
-echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
+echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 position-relative']);
 }
 
+// if(is_page()){
+// if(has_post_thumbnail()){
+// the_post_thumbnail('full', array('class' => 'w-100 h-100 bg-img position-absolute'));
+// } else {
+// echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
+// }
+// } else {
+// echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
+// }
 
-if(is_front_page()) {
-echo '<div class="pt-5 pb-5 text-white text-center">';
-echo '<div class="position-relative">';
-echo '<div class="multiply overlay position-absolute w-100 h-100 bg-img"></div>';
-echo '<div class="position-relative">';
+
+// if(is_front_page()) {
+// echo '<div class="text-white text-center">';
+// echo '<div class="position-relative">';
+// echo '<div class="multiply overlay position-absolute w-100 h-100 bg-img"></div>';
+// echo '<div class="position-relative">';
 echo '<div class="container">';
-echo '<div class="row">';
-echo '<div class="col-12">';
-echo '<h1 class="pt-3 pb-3 mb-0">' . get_the_title() . '</h1>';
+echo '<div class="row justify-content-center">';
+echo '<div class="col-12 text-center">';
+echo '<h1 class="p-3 mb-0 d-inline-block bg-accent text-white bold text-uppercase" style="transform:translate(0px, -100%);">' . get_the_title() . '</h1>';
 echo '</div>';
 echo '</div>';
+echo '<div class="row justify-content-center pb-5">';
+
+echo '<div class="col-md-1" style="">';
+echo '<div class="h-100 bg-accent ml-auto" style="width:2px;"></div>';
+echo '</div>';
+
+echo '<div class="col-md-6">';
+if ( have_posts() ) : while ( have_posts() ) : the_post();
+the_content();
+endwhile;
+endif;
+echo '</div>';
+
 echo '</div>';
 echo '</div>';
-echo '</div>';
-echo '</div>';
-}
+// echo '</div>';
+// echo '</div>';
+// echo '</div>';
+// }
 
 
 
