@@ -1,6 +1,7 @@
 :root {
   --accent-primary: #db000e;
   --accent-secondary: #182236;
+  --accent-gray: #555555;
 }
 
 html {
@@ -50,7 +51,7 @@ a.bg-accent-secondary:hover {
 }
 
 .bg-gray {
-  background: #adadad;
+  background: var(--accent-gray);
 }
 
 .bg-gray-1 {
