@@ -1,9 +1,8 @@
-.about {
+/* .about {
   padding: 0 0 27px;
 }
 
 .about-middle {
-  /* background: rgba(95, 92, 104, .71); */
   background: #f7f7f7;
   padding: 1rem;
   z-index: 1;
@@ -64,7 +63,6 @@
 
 .about-details h5 {
   color: #beb0a9;
-  /* transform: translate(105px, 0); */
   font-size: 2rem;
   width: 80%;
   font-weight: 300 !important;
@@ -78,4 +76,24 @@
     top: -2%;
     height: 105%;
   }
+} */
+
+/* start of services */
+.hover-box {
+  opacity: 0;
 }
+
+.col-services:hover .hover-box {
+  opacity: 1;
+}
+
+/* span.plus-sign {
+  font-size: 30px;
+  line-height: 0;
+  border: 1px solid #3373f1;
+  width: 25px;
+  height: 25px;
+  display: block;
+} */
+
+/* end of services */

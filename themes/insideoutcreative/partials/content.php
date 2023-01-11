@@ -139,7 +139,7 @@ echo '</section>';
     background: radial-gradient(circle, rgba(255,255,255,0.5) 30%, rgba(255,255,255,1) 100%);top:0;left:0;"></div>';
     echo '<div class="position-absolute w-100 h-100" style="background:#ff0000;mix-blend-mode:multiply;top:0;left:0;"></div>';
     echo '<div class="position-absolute w-100 h-100" style="background:#900004;top:0;left:0;mix-blend-mode:multiply;"></div>';
-    echo '<div class="position-absolute" style="width:90%;height:70%;top:15%;left:5%;background:#0f2849;mix-blend-mode:screen;opacity:.62;"></div>';
+    echo '<div class="position-absolute" style="width:90%;height:90%;top:5%;left:5%;background:#0f2849;mix-blend-mode:screen;opacity:.62;"></div>';
 
     echo '<div class="container">';
     echo '<div class="row">';
@@ -159,14 +159,32 @@ echo '</section>';
         // Setup this post for WP functions (variable must be named $post).
         setup_postdata($post);
         $pagesCounter++;
-        echo '<a href="' . get_the_permalink() . '" class="col-lg-3 col-md-4 text-white mb-5">';
+        echo '<a href="' . get_the_permalink() . '" class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
         echo '<div class="position-relative pt-3 pl-5 pr-5 h-100">';
+
+        echo '<div class="hover-box bg-accent position-absolute w-100 h-100 z-1 d-flex align-items-center justify-content-center" style="border:3px solid white;top:0;left:0;transition:all .25s ease-in-out;">';
+        echo '<h6 class="bold">' . get_the_title() . '</h6>';
+        echo '</div>';
 
         echo '<div class="position-absolute w-100 h-100" style="background:#182236;top:0;left:0;mix-blend-mode:multiply;opacity:.72;"></div>';
 
         echo '<div class="position-relative pb-3 h-100">';
         echo '<span class="h1 blair-light mb-5 d-block" style="font-size:50px;">' . sprintf("%02d", $pagesCounter) . '</span>';
+        echo '<div class="d-flex align-items-center">';
+        echo '<div style="height: 35px;
+        width: 35px;
+        border: 1px solid #3373f1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 15px;">';
+        echo '<span class="plus-sign">&plus;</span>';
+        echo '</div>';
+        echo '<div>';
         echo '<h6>' . get_the_title() . '</h6>';
+        echo '</div>';
+        echo '</div>';
         echo '<div class="position-absolute" style="border-bottom:2px solid var(--accent-primary);width:50px;bottom:0;left:0;"></div>';
         echo '</div>';
 
@@ -181,6 +199,78 @@ echo '</section>';
 
     echo '</div>';
     
+    echo '</section>';
+    endwhile; endif;
+} elseif ($layout == 'Process'){
+    if(have_rows('process_group')): while(have_rows('process_group')): the_row();
+
+    echo '<section class="pt-5 pb-5 position-relative bg-accent-secondary ' . get_sub_field('class') . '" style="' . get_sub_field('style') . '">';
+    echo '<div class="container">';
+    echo '<div class="row">';
+    echo '<div class="col-12 text-center text-white pb-5">';
+    echo get_sub_field('content');
+    echo '</div>';
+    echo '</div>';
+
+    if(have_rows('process_steps')):
+    echo '<div class="row">';
+    while(have_rows('process_steps')): the_row();
+
+    echo '<div class="col-lg-3 col-md-6">';
+    echo '<div class="position-relative">';
+    $image = get_sub_field('image');
+    echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100','style'=>'height:300px;object-fit:cover;']);
+    echo '<div class="bg-accent text-white text-center p-4">';
+    echo '<h6>' . get_sub_field('title') . '</h6>';
+    echo '</div>';
+    echo '</div>';
+
+    echo '</div>';
+
+    endwhile;
+    echo '</div>';
+    endif;
+
+    echo '</div>';
+    echo '</section>';
+
+    endwhile; endif;
+} elseif($layout == 'Testimonials') {
+    if(have_rows('testimonials_group')): while(have_rows('testimonials_group')): the_row();
+    echo '<section class="pt-5 pb-5 position-relative ' . get_sub_field('class') . '" style="background:#363636;border-top:8px solid var(--accent-primary);border-bottom:8px solid var(--accent-primary);' . get_sub_field('style') . '">';
+    echo '<div class="container">';
+
+    echo '<div class="row">';
+    echo '<div class="col-12 text-center text-white pb-5">';
+
+    echo get_sub_field('content');
+
+    echo '</div>';
+    echo '</div>';
+
+
+    if(have_rows('testimonials')):
+    echo '<div class="testimonial-carousel owl-carousel owl-theme arrows-middle">';
+    while(have_rows('testimonials')): the_row();
+    echo '<div class="position-relative pl-5" style="color:#acacac;">';
+
+    echo '<div class="position-absolute" style="top:0;left:0;">';
+    echo '<img src="https://insideoutcreative.io/wp-content/uploads/2022/11/Quotes.png" alt="" width="25px" height="25px">';
+    echo '</div>';
+
+    echo get_sub_field('content');
+    echo '<div class="pl-5">';
+    echo '<span class="bold" style="color:#cccccc;">' . get_sub_field('name') . '</span><br>';
+    echo '<span class="">' . get_sub_field('job_title') . '</span>';
+    echo '</div>';
+    echo '</div>';
+
+    endwhile;
+    echo '</div>';
+    endif;
+
+
+    echo '</div>';
     echo '</section>';
     endwhile; endif;
 }

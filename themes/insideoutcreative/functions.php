@@ -1,6 +1,6 @@
 <?php
 
-function done_right_signs_stylesheets() {
+function sucnup_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );
 
 wp_enqueue_style('bootstrap', get_theme_file_uri('/css/bootstrap.min.css'));
@@ -10,6 +10,7 @@ wp_enqueue_style('popup', get_theme_file_uri('/css/sections/popup.css'));
 wp_enqueue_style('hero', get_theme_file_uri('/css/sections/hero.css'));
 wp_enqueue_style('contact', get_theme_file_uri('/css/sections/contact.css'));
 wp_enqueue_style('img', get_theme_file_uri('/css/elements/img.css'));
+wp_enqueue_style('page', get_theme_file_uri('/css/sections/page.css'));
 
 if(is_front_page()){
 	wp_enqueue_style('home', get_theme_file_uri('/css/sections/home.css'));
@@ -37,9 +38,9 @@ wp_enqueue_style('blair-itc', get_theme_file_uri('/blair-itc/blair-itc.css'));
 wp_enqueue_style('aspira', get_theme_file_uri('/aspira-font/aspira-font.css'));
 
 }
-add_action('wp_enqueue_scripts', 'done_right_signs_stylesheets');
+add_action('wp_enqueue_scripts', 'sucnup_stylesheets');
 // for footer
-function done_right_signs_stylesheets_footer() {
+function sucnup_stylesheets_footer() {
 	// wp_enqueue_style('style-footer', get_theme_file_uri('/css/style-footer.css'));
 	// owl carousel
 	wp_enqueue_style('owl.carousel.min', get_theme_file_uri('/owl-carousel/owl.carousel.min.css'));
@@ -75,7 +76,7 @@ function done_right_signs_stylesheets_footer() {
 		}
 	}
 	
-add_action('get_footer', 'done_right_signs_stylesheets_footer');
+add_action('get_footer', 'sucnup_stylesheets_footer');
 
 // loads enqueued javascript files deferred
 function mind_defer_scripts( $tag, $handle, $src ) {
@@ -99,7 +100,7 @@ function mind_defer_scripts( $tag, $handle, $src ) {
   } 
   add_filter( 'script_loader_tag', 'mind_defer_scripts', 10, 3 );
 
-function done_right_signs_menus() {
+function sucnup_menus() {
  register_nav_menus( array(
    'primary' => __( 'Primary' )));
 register_nav_menus( array(
@@ -109,7 +110,7 @@ register_nav_menus( array(
  add_theme_support('post-thumbnails');
 }
 
-add_action('after_setup_theme', 'done_right_signs_menus');
+add_action('after_setup_theme', 'sucnup_menus');
 
 if( function_exists('acf_add_options_page') ) {
 

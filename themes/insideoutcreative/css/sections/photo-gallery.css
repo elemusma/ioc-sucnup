@@ -20,12 +20,12 @@ button.owl-prev {
   }
 
   .arrows-middle button.owl-prev {
-    left: 5%;
+    left: -10%;
     transform: translate(0, -50%);
   }
 
   .arrows-middle button.owl-next {
-    right: 5%;
+    right: -10%;
     transform: translate(0, -50%);
   }
 }
