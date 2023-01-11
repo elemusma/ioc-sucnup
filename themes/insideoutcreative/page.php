@@ -4,7 +4,7 @@ if ( ! post_password_required( $post ) ) {
 
 if(get_the_content()){
 
-echo '<section class="pt-5 pb-5">';
+echo '<section class="pt-5 pb-5 s">';
 echo '<div class="container">';
 echo '<div class="row">';
 echo '<div class="col-md-12">';
