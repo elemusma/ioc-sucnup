@@ -80,3 +80,16 @@ strong {
 blockquote {
   font-size: 90%;
 }
+
+.blair-bold {
+  font-family: 'blairitc_ttbold';
+}
+
+.blair-medium {
+  font-family: 'blair_itc_mediumregular';
+}
+
+.blair-light,
+h2 {
+  font-family: 'blairitc_ttlight';
+}

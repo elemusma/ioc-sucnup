@@ -42,6 +42,147 @@ if($layout == 'List'){
         echo '</div>';
     echo '</section>';
     endwhile; endif;
+} elseif($layout == 'Image + Content'){
+    if(have_rows('image_content')): while(have_rows('image_content')): the_row();
+    $bgImg = get_sub_field('background_image');
+    $mainImg = get_sub_field('main_image');
+    $contentSide = get_sub_field('content_side');
+    $link = get_sub_field('link');
+
+    echo '<section class="pt-5 pb-5 position-relative ' . get_sub_field('class') . '" style="' . get_sub_field('style') . '">';
+    echo wp_get_attachment_image($bgImg['id'],'full','',['class'=>'w-100 position-absolute','style'=>'top:0;left:0;object-fit:cover;height:85%;']);
+    echo '<div class="position-absolute w-100 h-100" style="background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 40%, rgba(255,255,255,0.1) 100%);top:0;left:0;"></div>';
+
+    echo '<div class="container">';
+    // if($contentSide == 'Right'){
+        // echo '<div class="row align-items-center justify-content-end">';
+        // echo '</div>';
+    // } else {
+        echo '<div class="row align-items-center">';
+
+    // }
+            echo '<div class="col-12">';
+if($contentSide == 'Right'){
+    echo '<div class="text-right">';
+}
+                echo '<h6>' . get_sub_field('pretitle') . '</h6>';
+                if($contentSide == 'Right'){
+                    echo '<div class="divider mr-0"></div>';
+                } else {
+                    echo '<div class="divider ml-0"></div>';
+                }
+                echo '<h2>' . get_sub_field('title') . '</h2>';
+                if($contentSide == 'Right'){
+                    echo '<div class="col-lg-7 pl-0 pb-4 ml-auto" style="font-size:120%;">';
+                    // echo '</div>';
+                } else {
+                    echo '<div class="col-lg-7 pl-0 pb-4" style="font-size:120%;">';
+                }
+                echo get_sub_field('content');
+                echo '</div>';
+
+                if($contentSide == 'Right'){
+                    echo '</div>';
+                }
+            echo '</div>';
+
+            
+
+        echo '</div>';
+
+        if($contentSide == 'Right'){
+            echo '<div class="row flex-row-reverse align-items-center">';
+            // echo '</div>';
+        } else {
+            echo '<div class="row align-items-center">';
+
+        }
+
+        if( $link ): 
+            $link_url = $link['url'];
+            $link_title = $link['title'];
+            $link_target = $link['target'] ? $link['target'] : '_self';
+            echo '<div class="col-lg-3 col-md-5">';
+            echo '<a class="btn-main w-100 text-center" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" style="transform:translate(0px, -100%);">' . esc_html( $link_title ) . '</a>';
+
+            echo '</div>';
+        endif;
+
+        echo '<div class="col-md-7">';
+        echo '<div class="position-relative" style="border:4px solid white;border-radius:4px;box-shadow:0px 2px 5px rgba(0,0,0,.5);background:#ebebeb;">';
+        echo wp_get_attachment_image($mainImg['id'],'full','',['class'=>'w-100 h-100','style'=>'']);
+        echo '</div>';
+        echo '</div>';
+
+        echo '</div>';
+
+    echo '</div>';
+echo '</section>';
+    endwhile; endif;
+} elseif($layout == 'Big Image'){
+    if(have_rows('big_image')): while(have_rows('big_image')): the_row();
+        echo '<section class="pt-5 pb-5 position-relative ' . get_sub_field('class') . '" style="' . get_sub_field('style') . '">';
+        $image = get_sub_field('image');
+
+        echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100','style'=>'']);
+        echo '</section>';
+    endwhile; endif;
+} elseif($layout == 'Services'){
+    if(have_rows('services_group')): while(have_rows('services_group')): the_row();
+    echo '<section class="position-relative ' . get_sub_field('class') . '" style="padding:100px 0px;' . get_sub_field('style') . '">';
+
+    $bgImg = get_sub_field('background_image');
+    echo wp_get_attachment_image($bgImg['id'],'full','',['class'=>'w-100 h-100 position-absolute','style'=>'top:0;left:0;object-fit:cover;']);
+
+    echo '<div class="position-absolute w-100 h-100" style="background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 30%, rgba(255,255,255,1) 100%);top:0;left:0;"></div>';
+    echo '<div class="position-absolute w-100 h-100" style="background:#ff0000;mix-blend-mode:multiply;top:0;left:0;"></div>';
+    echo '<div class="position-absolute w-100 h-100" style="background:#900004;top:0;left:0;mix-blend-mode:multiply;"></div>';
+    echo '<div class="position-absolute" style="width:90%;height:70%;top:15%;left:5%;background:#0f2849;mix-blend-mode:screen;opacity:.62;"></div>';
+
+    echo '<div class="container">';
+    echo '<div class="row">';
+    echo '<div class="col-12 text-center text-white pb-5">';
+
+    echo get_sub_field('content');
+
+    echo '</div>';
+    echo '</div>';
+
+    $pages = get_sub_field('pages');
+
+    if( $pages ):
+        echo '<div class="row justify-content-center">';
+        $pagesCounter=0;
+        foreach( $pages as $post ): 
+        // Setup this post for WP functions (variable must be named $post).
+        setup_postdata($post);
+        $pagesCounter++;
+        echo '<a href="' . get_the_permalink() . '" class="col-lg-3 col-md-4 text-white mb-5">';
+        echo '<div class="position-relative pt-3 pl-5 pr-5 h-100">';
+
+        echo '<div class="position-absolute w-100 h-100" style="background:#182236;top:0;left:0;mix-blend-mode:multiply;opacity:.72;"></div>';
+
+        echo '<div class="position-relative pb-3 h-100">';
+        echo '<span class="h1 blair-light mb-5 d-block" style="font-size:50px;">' . sprintf("%02d", $pagesCounter) . '</span>';
+        echo '<h6>' . get_the_title() . '</h6>';
+        echo '<div class="position-absolute" style="border-bottom:2px solid var(--accent-primary);width:50px;bottom:0;left:0;"></div>';
+        echo '</div>';
+
+        echo '</div>';
+        echo '</a>';
+        endforeach;
+            // Reset the global post object so that the rest of the page works correctly.
+            wp_reset_postdata(); 
+            echo '</div>';
+        endif;
+    
+
+    echo '</div>';
+    
+    echo '</section>';
+    endwhile; endif;
 }
 
 
