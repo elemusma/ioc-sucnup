@@ -125,7 +125,7 @@ echo '</section>';
         echo '<section class="pt-5 pb-5 position-relative ' . get_sub_field('class') . '" style="' . get_sub_field('style') . '">';
         $image = get_sub_field('image');
 
-        echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100','style'=>'']);
+        echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100 h-auto','style'=>'']);
         echo '</section>';
     endwhile; endif;
 } elseif($layout == 'Services'){

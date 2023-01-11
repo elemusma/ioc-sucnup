@@ -21,12 +21,25 @@ wp_head();
 <?php
 if(get_field('body','options')) { the_field('body','options'); }
 echo '<div class="blank-space"></div>';
-echo '<header class="position-relative pt-3 pb-3 z-3 box-shadow bg-white w-100" style="top:0;left:0;">';
+echo '<header class="position-relative pt-3 z-3 box-shadow bg-white w-100" style="top:0;left:0;">';
 
 echo '<div class="nav">';
-echo '<div class="container">';
-echo '<div class="row align-items-center">';
-echo '<div class="col-lg-3 col-md-6">';
+echo '<div class="container-fluid">';
+echo '<div class="row align-items-center justify-content-end">';
+
+
+echo '<div class="col-lg">';
+
+echo '</div>';
+
+echo '<div class="col-lg col-md-4 mobile-hidden">';
+wp_nav_menu(array(
+    'menu' => 'Menu Left',
+    'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center mb-0'
+    )); 
+echo '</div>';
+
+echo '<div class="col-lg col-md-6 col-8">';
 echo '<a href="' . home_url() . '">';
 
 $logo = get_field('logo','options'); 
@@ -36,7 +49,15 @@ echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto']);
 
 echo '</a>';
 echo '</div>';
-echo '<div class="col-lg-4 col-6 desktop-hidden">';
+
+echo '<div class="col-lg col-md-4 mobile-hidden">';
+wp_nav_menu(array(
+    'menu' => 'Menu Right',
+    'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center mb-0'
+    )); 
+echo '</div>';
+
+echo '<div class="col-4 desktop-hidden">';
 echo '<a id="navToggle" class="nav-toggle">';
 echo '<div>';
 echo '<div class="line-1 bg-accent"></div>';
@@ -45,6 +66,25 @@ echo '<div class="line-3 bg-accent"></div>';
 echo '</div>';
 echo '</a>';
 echo '</div>';
+
+echo '<div class="col-lg col-md-10 text-right pr-0">';
+wp_nav_menu(array(
+    'menu' => 'Contact',
+    'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-end mb-0 bold font-italic'
+    )); 
+
+    echo '<div class="position-relative">';
+    echo wp_get_attachment_image(126,'full','',['class'=>'position-absolute w-100 h-100','style'=>'bottom: -2px;
+    left: 0;']);
+
+    echo '<div class="position-relative">';
+    echo '<a href="tel:+' . get_field('phone','options') . '" class="text-white bold pl-4 pr-4 pt-3 pb-2 d-block">' . get_field('phone','options') . '</a>';
+    echo '</div>';
+
+    echo '</div>';
+
+echo '</div>';
+
 echo '<div id="navMenuOverlay" class="position-fixed z-2"></div>';
 echo '<div class="col-lg-4 col-md-8 col-11 nav-items bg-white desktop-hidden" id="navItems">';
 
@@ -104,16 +144,16 @@ echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
 echo '<div class="col-12 text-center">';
-echo '<h1 class="p-3 mb-0 d-inline-block bg-accent text-white bold text-uppercase" style="transform:translate(0px, -100%);">' . get_the_title() . '</h1>';
+echo '<h1 class="p-3 mb-0 d-inline-block bg-accent text-white bold text-uppercase heading-page" style="">' . get_the_title() . '</h1>';
 echo '</div>';
 echo '</div>';
 echo '<div class="row justify-content-center pb-5">';
 
-echo '<div class="col-md-1" style="">';
+echo '<div class="col-1 pr-0" style="">';
 echo '<div class="h-100 bg-accent ml-auto" style="width:2px;"></div>';
 echo '</div>';
 
-echo '<div class="col-md-6">';
+echo '<div class="col-md-6 col-11">';
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
 endwhile;

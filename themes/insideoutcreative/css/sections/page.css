@@ -79,6 +79,19 @@
 } */
 
 /* start of services */
+@media only screen and (min-width:992px) {
+
+  .col-services:nth-child(4),
+  .col-services:nth-child(5),
+  .col-services:nth-last-child(2),
+  .col-services:last-child {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
 .hover-box {
   opacity: 0;
 }

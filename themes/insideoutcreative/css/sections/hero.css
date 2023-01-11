@@ -12,3 +12,15 @@ body:not(.home) .img-hero {
     min-height: 200px;
     height: 30vh;
 }
+
+@media only screen and (min-width:992px) {
+    .heading-page {
+        transform: translate(0px, -100%);
+    }
+}
+
+@media only screen and (max-width:991px) {
+    .heading-page {
+        margin-bottom: 50px !important;
+    }
+}
