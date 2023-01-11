@@ -86,12 +86,12 @@ wp_nav_menu(array(
 echo '</div>';
 
 echo '<div id="navMenuOverlay" class="position-fixed z-2"></div>';
-echo '<div class="col-lg-4 col-md-8 col-11 nav-items bg-white desktop-hidden" id="navItems">';
+echo '<div class="col-lg-4 col-md-8 col-11 pr-0 nav-items bg-white desktop-hidden" id="navItems">';
 
 echo '<div class="pt-5 pb-5">';
 echo '<div class="close-menu">';
 echo '<div>';
-echo '<span id="navMenuClose" class="close h1">X</span>';
+echo '<span id="navMenuClose" class="close h1 pr-3">X</span>';
 echo '</div>';
 echo '</div>';
 echo '<a href="' . home_url() . '">';
@@ -103,10 +103,34 @@ echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto','sty
 
 echo '</a>';
 echo '</div>';
+
 wp_nav_menu(array(
-'menu' => 'primary',
-'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center mb-0'
-)); 
+    'menu' => 'Menu Left',
+    'menu_class'=>'menu list-unstyled mb-0'
+));
+wp_nav_menu(array(
+    'menu' => 'Menu Right',
+    'menu_class'=>'menu list-unstyled mb-0'
+));
+wp_nav_menu(array(
+    'menu' => 'Contact',
+    'menu_class'=>'menu list-unstyled mb-0'
+));
+
+echo '<div class="position-relative text-right mt-4">';
+    echo wp_get_attachment_image(126,'full','',['class'=>'position-absolute w-100 h-100','style'=>'bottom: -2px;
+    left: 0;']);
+
+    echo '<div class="position-relative">';
+    echo '<a href="tel:+' . get_field('phone','options') . '" class="text-white bold pl-4 pr-4 pt-3 pb-2 d-block">' . get_field('phone','options') . '</a>';
+    echo '</div>';
+
+    echo '</div>';
+
+    echo '<div class="pt-5">';
+    echo get_field('website_message','options');
+    echo '</div>';
+
 echo '</div>';
 echo '</div>';
 echo '</div>';
