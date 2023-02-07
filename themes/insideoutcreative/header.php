@@ -138,16 +138,24 @@ echo '</div>';
 
 echo '</header>';
 
-echo '<section class="hero position-relative pt-5 pb-5">';
+echo '<section class="hero position-relative pt-5 pb-5 text-center">';
 
 echo wp_get_attachment_image(43,'full','',['class'=>'h-100 position-absolute','style'=>'top:0;left:5%;object-fit:cover;width:90%;']);
 
 $globalPlaceholderImg = get_field('global_placeholder_image','options');
-if(has_post_thumbnail()){
-the_post_thumbnail('full', array('class' => 'w-100 h-100 position-relative'));
+
+if(is_front_page()){
+
+    echo '<video playsinline autoplay muted loop class="h-auto position-relative z-1" style="width:80.5%;" src="' . home_url() . '/wp-content/themes/insideoutcreative/assets/Suc-n-Up-Yesterdays-Meals-on-Wheels.mp4#t=0.1"></video>';
+
 } else {
-echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 position-relative']);
-}
+    
+    if(has_post_thumbnail()){
+        the_post_thumbnail('full', array('class' => 'w-100 h-100 position-relative'));
+    } else {
+        echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 position-relative']);
+    }
+} // end of is front page
 
 // if(is_page()){
 // if(has_post_thumbnail()){
@@ -168,7 +176,7 @@ echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
 echo '<div class="col-12 text-center">';
-echo '<h1 class="p-3 mb-0 d-inline-block bg-accent text-white bold text-uppercase heading-page" style="">' . get_the_title() . '</h1>';
+echo '<h1 class="p-3 mb-0 d-inline-block bg-accent text-white bold text-uppercase heading-page z-1 position-relative" style="">' . get_the_title() . '</h1>';
 echo '</div>';
 echo '</div>';
 echo '<div class="row justify-content-center pb-5">';

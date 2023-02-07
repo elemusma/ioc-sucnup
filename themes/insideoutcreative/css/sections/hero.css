@@ -15,7 +15,7 @@ body:not(.home) .img-hero {
 
 @media only screen and (min-width:992px) {
     .heading-page {
-        transform: translate(0px, -100%);
+        transform: translate(0px, -87px);
     }
 }
 
