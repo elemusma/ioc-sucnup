@@ -138,7 +138,7 @@ echo '</div>';
 
 echo '</header>';
 
-echo '<section class="hero position-relative pt-5 pb-5 text-center s">';
+echo '<section class="hero position-relative pb-5 text-center" style="padding-top:85px;">';
 
 echo wp_get_attachment_image(43,'full','',['class'=>'h-100 position-absolute','style'=>'top:0;left:5%;object-fit:cover;width:90%;']);
 
@@ -146,7 +146,9 @@ $globalPlaceholderImg = get_field('global_placeholder_image','options');
 
 if(is_front_page()){
 
-    echo '<video playsinline autoplay muted loop class="h-auto position-relative z-1" style="width:80.5%;" src="' . home_url() . '/wp-content/themes/insideoutcreative/assets/Suc-n-Up-Yesterdays-Meals-on-Wheels.mp4#t=0.1"></video>';
+    echo '<div class="h-100">';
+    echo '<video playsinline autoplay muted loop class="w-100 h-auto position-relative z-1" style="" src="' . home_url() . '/wp-content/themes/insideoutcreative/assets/Suc-n-Up-Meals-on-Wheels.mov#t=0.1"></video>';
+    echo '</div>';
 
 } else {
     
