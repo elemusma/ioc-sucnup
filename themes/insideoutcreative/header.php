@@ -138,7 +138,7 @@ echo '</div>';
 
 echo '</header>';
 
-echo '<section class="hero position-relative pb-5 text-center" style="padding-top:85px;">';
+echo '<section class="hero position-relative pb-5 text-center" style="">';
 
 echo wp_get_attachment_image(43,'full','',['class'=>'h-100 position-absolute','style'=>'top:0;left:5%;object-fit:cover;width:90%;']);
 

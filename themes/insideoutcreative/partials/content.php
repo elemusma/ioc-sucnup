@@ -92,10 +92,10 @@ if($contentSide == 'Right'){
         echo '</div>';
 
         if($contentSide == 'Right'){
-            echo '<div class="row flex-row-reverse align-items-center">';
+            echo '<div class="row flex-row-reverse">';
             // echo '</div>';
         } else {
-            echo '<div class="row align-items-center">';
+            echo '<div class="row">';
 
         }
 
@@ -104,7 +104,7 @@ if($contentSide == 'Right'){
             $link_title = $link['title'];
             $link_target = $link['target'] ? $link['target'] : '_self';
             echo '<div class="col-lg-3 col-md-5">';
-            echo '<a class="btn-main w-100 text-center" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" style="transform:translate(0px, -100%);">' . esc_html( $link_title ) . '</a>';
+            echo '<a class="btn-main w-100 text-center" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" style="transform:translate(0px, 20px);">' . esc_html( $link_title ) . '</a>';
 
             echo '</div>';
         endif;
