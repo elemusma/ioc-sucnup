@@ -74,10 +74,10 @@ if($contentSide == 'Right'){
                 }
                 echo '<h2>' . get_sub_field('title') . '</h2>';
                 if($contentSide == 'Right'){
-                    echo '<div class="col-lg-7 pl-0 pb-4 ml-auto" style="font-size:120%;">';
+                    echo '<div class="col-lg-10 pl-0 pb-4 ml-auto" style="font-size:120%;">';
                     // echo '</div>';
                 } else {
-                    echo '<div class="col-lg-7 pl-0 pb-4" style="font-size:120%;">';
+                    echo '<div class="col-lg-10 pl-0 pb-4" style="font-size:120%;">';
                 }
                 echo get_sub_field('content');
                 echo '</div>';
