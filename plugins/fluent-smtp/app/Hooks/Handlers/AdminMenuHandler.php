@@ -118,7 +118,7 @@ class AdminMenuHandler
 
         wp_enqueue_script('fluentmail-chartjs', fluentMailMix('libs/chartjs/Chart.min.js'), [], FLUENTMAIL_PLUGIN_VERSION);
         wp_enqueue_script('fluentmail-vue-chartjs', fluentMailMix('libs/chartjs/vue-chartjs.min.js'), [], FLUENTMAIL_PLUGIN_VERSION);
-
+        wp_enqueue_script('dompurify', fluentMailMix('libs/purify/purify.min.js'), [], '2.4.3');
 
         wp_enqueue_style(
             'fluent_mail_admin_app', fluentMailMix('admin/css/fluent-mail-admin.css'), [], FLUENTMAIL_PLUGIN_VERSION
@@ -156,7 +156,8 @@ class AdminMenuHandler
             'disable_installation'   => $disable_recommendation,
             'plugin_url'             => 'https://fluentsmtp.com/?utm_source=wp&utm_medium=install&utm_campaign=dashboard',
             'trans'                  => $this->getTrans(),
-            'recommended'            => $recommendedSettings
+            'recommended'            => $recommendedSettings,
+            'is_disabled_defined'    => defined('FLUENTMAIL_SIMULATE_EMAILS') && FLUENTMAIL_SIMULATE_EMAILS
         ]);
 
         do_action('fluent_mail_loading_app');
@@ -237,7 +238,7 @@ class AdminMenuHandler
 
         $misc = $this->app->make(Manager::class)->getConfig('misc');
 
-        if (!empty($misc['simulate_emails']) && $misc['simulate_emails'] == 'yes') {
+        if ((!empty($misc['simulate_emails']) && $misc['simulate_emails'] == 'yes') || (defined('FLUENTMAIL_SIMULATE_EMAILS') && FLUENTMAIL_SIMULATE_EMAILS)) {
             $args = [
                 'parent' => 'top-secondary',
                 'id'     => 'fluentsmtp_simulated',

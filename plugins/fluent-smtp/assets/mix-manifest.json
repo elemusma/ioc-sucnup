@@ -21,5 +21,6 @@
     "/images/provider-sendinblue.svg": "/images/provider-sendinblue.svg",
     "/images/provider-smtp.svg": "/images/provider-smtp.svg",
     "/images/provider-sparkpost.svg": "/images/provider-sparkpost.svg",
-    "/images/wpmn-fb.jpg": "/images/wpmn-fb.jpg"
+    "/images/wpmn-fb.jpg": "/images/wpmn-fb.jpg",
+    "/libs/.DS_Store": "/libs/.DS_Store"
 }
