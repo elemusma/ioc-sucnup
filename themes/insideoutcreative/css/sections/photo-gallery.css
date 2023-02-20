@@ -20,12 +20,12 @@ button.owl-prev {
   }
 
   .arrows-middle button.owl-prev {
-    left: -10%;
+    left: 0%;
     transform: translate(0, -50%);
   }
 
   .arrows-middle button.owl-next {
-    right: -10%;
+    right: 0%;
     transform: translate(0, -50%);
   }
 }
@@ -47,6 +47,7 @@ button.owl-prev {
 .owl-prev span,
 .owl-next span {
   font-size: 4rem;
+  color: var(--accent-primary);
 }
 
 /* for background galleries */

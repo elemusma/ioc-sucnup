@@ -1,4 +1,4 @@
-/* .about {
+.about {
   padding: 0 0 27px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .about-before {
-  background: #396680;
+  background: white;
   top: -50px;
   right: 20px;
   position: absolute;
@@ -44,7 +44,7 @@
 
 .about-after {
   content: "";
-  background: #C8BF9F;
+  background: var(--accent-primary);
   width: 25%;
   height: 90%;
   position: absolute;
@@ -76,7 +76,7 @@
     top: -2%;
     height: 105%;
   }
-} */
+}
 
 /* start of services */
 @media only screen and (min-width:992px) {

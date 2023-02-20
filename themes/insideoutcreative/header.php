@@ -138,95 +138,86 @@ echo '</div>';
 
 echo '</header>';
 
+
+if(is_front_page()){
 echo '<section class="hero position-relative pb-5 text-center" style="">';
 
 echo wp_get_attachment_image(43,'full','',['class'=>'h-100 position-absolute','style'=>'top:0;left:5%;object-fit:cover;width:90%;']);
 
 $globalPlaceholderImg = get_field('global_placeholder_image','options');
 
-if(is_front_page()){
+// if(is_front_page()){
 
     echo '<div class="h-100">';
     echo '<video playsinline autoplay muted loop class="w-100 h-auto position-relative z-1" style="" src="' . home_url() . '/wp-content/themes/insideoutcreative/assets/Suc-n-Up-Meals-on-Wheels.mov#t=0.1"></video>';
     echo '</div>';
 
-} else {
+// }
+// else {
     
-    if(has_post_thumbnail()){
-        the_post_thumbnail('full', array('class' => 'w-100 h-100 position-relative'));
-    } else {
-        echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 position-relative']);
-    }
-} // end of is front page
+//     if(has_post_thumbnail()){
+//         the_post_thumbnail('full', array('class' => 'w-100 h-100 position-relative'));
+//     } else {
+//         echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 position-relative']);
+//     }
+// } 
+// end of is front page
 
-// if(is_page()){
-// if(has_post_thumbnail()){
-// the_post_thumbnail('full', array('class' => 'w-100 h-100 bg-img position-absolute'));
-// } else {
-// echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
+
+
+
+    echo '<div class="container">';
+    echo '<div class="row justify-content-center">';
+    echo '<div class="col-12 text-center">';
+    echo '<h1 class="p-3 mb-0 d-inline-block bg-accent text-white bold text-uppercase heading-page z-1 position-relative" style="">' . get_the_title() . '</h1>';
+    echo '</div>';
+    echo '</div>';
+    echo '<div class="row justify-content-center pb-5">';
+
+    echo '<div class="col-1 pr-0" style="">';
+    echo '<div class="h-100 bg-accent ml-auto" style="width:2px;"></div>';
+    echo '</div>';
+
+    echo '<div class="col-md-6 col-11">';
+    if ( have_posts() ) : while ( have_posts() ) : the_post();
+    the_content();
+    endwhile;
+    endif;
+    echo '</div>';
+
+    echo '</div>';
+    echo '</div>';
+
+
+
+
+
+// if(!is_front_page()) {
+// echo '<div class="container pt-5 pb-5 text-white text-center">';
+// echo '<div class="row">';
+// echo '<div class="col-md-12">';
+// if(is_page() || !is_front_page()){
+// echo '<h1 class="">' . get_the_title() . '</h1>';
+// } elseif(is_single()){
+// echo '<h1 class="">' . single_post_title() . '</h1>';
+// } elseif(is_author()){
+// echo '<h1 class="">Author: ' . get_the_author() . '</h1>';
+// } elseif(is_tag()){
+// echo '<h1 class="">' . get_single_tag_title() . '</h1>';
+// } elseif(is_category()){
+// echo '<h1 class="">' . get_single_cat_title() . '</h1>';
+// } elseif(is_archive()){
+// echo '<h1 class="">' . get_archive_title() . '</h1>';
 // }
-// } else {
-// echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
+// elseif(!is_front_page() && is_home()){
+// echo '<h1 class="">' . get_the_title(133) . '</h1>';
 // }
-
-
-// if(is_front_page()) {
-// echo '<div class="text-white text-center">';
-// echo '<div class="position-relative">';
-// echo '<div class="multiply overlay position-absolute w-100 h-100 bg-img"></div>';
-// echo '<div class="position-relative">';
-echo '<div class="container">';
-echo '<div class="row justify-content-center">';
-echo '<div class="col-12 text-center">';
-echo '<h1 class="p-3 mb-0 d-inline-block bg-accent text-white bold text-uppercase heading-page z-1 position-relative" style="">' . get_the_title() . '</h1>';
-echo '</div>';
-echo '</div>';
-echo '<div class="row justify-content-center pb-5">';
-
-echo '<div class="col-1 pr-0" style="">';
-echo '<div class="h-100 bg-accent ml-auto" style="width:2px;"></div>';
-echo '</div>';
-
-echo '<div class="col-md-6 col-11">';
-if ( have_posts() ) : while ( have_posts() ) : the_post();
-the_content();
-endwhile;
-endif;
-echo '</div>';
-
-echo '</div>';
-echo '</div>';
 // echo '</div>';
 // echo '</div>';
 // echo '</div>';
 // }
-
-
-
-if(!is_front_page()) {
-echo '<div class="container pt-5 pb-5 text-white text-center">';
-echo '<div class="row">';
-echo '<div class="col-md-12">';
-if(is_page() || !is_front_page()){
-echo '<h1 class="">' . get_the_title() . '</h1>';
-} elseif(is_single()){
-echo '<h1 class="">' . single_post_title() . '</h1>';
-} elseif(is_author()){
-echo '<h1 class="">Author: ' . get_the_author() . '</h1>';
-} elseif(is_tag()){
-echo '<h1 class="">' . get_single_tag_title() . '</h1>';
-} elseif(is_category()){
-echo '<h1 class="">' . get_single_cat_title() . '</h1>';
-} elseif(is_archive()){
-echo '<h1 class="">' . get_archive_title() . '</h1>';
-}
-elseif(!is_front_page() && is_home()){
-echo '<h1 class="">' . get_the_title(133) . '</h1>';
-}
-echo '</div>';
-echo '</div>';
-echo '</div>';
-}
 
 echo '</section>';
+
+}
 ?>

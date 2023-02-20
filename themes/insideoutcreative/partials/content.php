@@ -133,7 +133,9 @@ echo '</section>';
     echo '<section class="position-relative ' . get_sub_field('class') . '" style="padding:100px 0px;' . get_sub_field('style') . '">';
 
     $bgImg = get_sub_field('background_image');
-    echo wp_get_attachment_image($bgImg['id'],'full','',['class'=>'w-100 h-100 position-absolute','style'=>'top:0;left:0;object-fit:cover;']);
+    if($bgImg){
+        echo wp_get_attachment_image($bgImg['id'],'full','',['class'=>'w-100 h-100 position-absolute','style'=>'top:0;left:0;object-fit:cover;']);
+    }
 
     echo '<div class="position-absolute w-100 h-100" style="background: rgb(255,255,255);
     background: radial-gradient(circle, rgba(255,255,255,0.5) 30%, rgba(255,255,255,1) 100%);top:0;left:0;"></div>';
@@ -273,6 +275,55 @@ echo '</section>';
     echo '</div>';
     echo '</section>';
     endwhile; endif;
+} elseif($layout == 'Gallery + Content'){
+    if(have_rows('gallery_content')): while(have_rows('gallery_content')): the_row();
+echo '<section class="pt-5 pb-5 position-relative texture-bg bg-accent-secondary gallery-content">';
+echo '<div class="background-image"></div>';
+echo '<div class="container pt-5 mb-5">';
+echo '<div class="row pb-5 mb-5 justify-content-around">';
+echo '<div class="col-lg-5 img--main">';
+echo '<div class="h-100">';
+
+$gallery = get_sub_field('gallery');
+if( $gallery ): 
+    echo '<div class="gallery-content-carousel owl-carousel owl-theme arrows-middle">';
+    foreach( $gallery as $image ):
+        echo '<div class="overflow-h">';
+        // echo '<div class="position-relative">';
+        echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" data-title="' . $image['title'] . '">';
+        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 h-100 img-portfolio'] );
+        echo '</a>';
+        // echo '</div>';
+        echo '</div>';
+    endforeach; 
+    echo '</div>';
+endif;
+
+echo '</div>';
+echo '</div>';
+echo '<div class="col-lg-6 pt-lg-0 pt-5 sm-text-center about"> ';
+echo '<div class="about-first-half">';
+echo '<div class="about-before"></div>';
+echo '<div class="about-middle"></div>';
+echo '</div>';
+echo '<div class="about-after"></div>';
+echo '<div class="about-details pt-5 pl-4 pr-4">';
+// echo '<div class="page details">';
+
+// echo '<h1>' . get_the_title() . '</h1>';
+
+
+// echo '</div>';
+
+the_sub_field('content');
+
+echo '</div>';
+echo '</div>';
+echo '</div>';
+echo '</div>';
+echo '</section>';
+
+endwhile; endif;
 }
 
 
