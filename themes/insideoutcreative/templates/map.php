@@ -5,7 +5,7 @@
  */
 get_header();
 
-echo '<div id="map" style="height:750px;width:100%;"></div>';
+echo '<div id="map" style="height:650px;width:100%;"></div>';
 
 ?>
 
