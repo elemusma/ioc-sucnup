@@ -25,7 +25,7 @@ if($layout == 'List'){
                 endif;
 
                 if(get_sub_field('content')){
-                    echo '<div class="pt-4">';
+                    echo '<div class="pt-4 text-center">';
                     echo get_sub_field('content');
                     echo '</div>';
                 }
