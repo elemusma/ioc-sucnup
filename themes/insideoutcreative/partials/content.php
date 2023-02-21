@@ -23,6 +23,13 @@ if($layout == 'List'){
                     endwhile; 
                     echo '</ul>';
                 endif;
+
+                if(get_sub_field('content')){
+                    echo '<div class="pt-4">';
+                    echo get_sub_field('content');
+                    echo '</div>';
+                }
+
                 echo '</div>';
             echo '</div>';
         echo '</div>';

@@ -18,7 +18,7 @@ echo '<div id="map" style="height:750px;width:100%;"></div>';
         // Map option
         var options = {
             center: {lat: 40.14775040259533, lng:-105.03824784895373}, 
-            zoom:5
+            zoom:7
         }
 
         // New Map
@@ -46,229 +46,166 @@ echo '<div id="map" style="height:750px;width:100%;"></div>';
 
         // Add Markers to Array
         let MarkerArray = [
-            {, 
+            {
                 location:{lat: 40.62568882714163, lng: -105.6283297543333},
                 content:`<div class="pt-4 pb-3">
                 <p>Larimer County</p>
                 </div>`
-            },
-{
-                location:{lat: 47.2872536, lng: -101.9241151},
+            }
+            ,
+            {
+                location:{lat: 40.422479058883425, lng: -104.71610141627593},
                 content:`<div class="pt-4 pb-3">
-                <p>113 Main St<br>Zap, ND 58580</p>
-                <a href="https://goo.gl/maps/rh5YjKNnJmeby4oV7" target="_blank">Click Here for Address</a>
+                <p>Weld County</p>
                 </div>`
-            },
-{
-                location:{lat: 46.78306519, lng: -98.56428316},
+            }
+            ,
+            {
+                location:{lat: 40.10640710602241, lng: -105.53702327265162},
                 content:`<div class="pt-4 pb-3">
-                <p>218 1st St<br>Ypsilanti, ND 58497</p>
-                <a href="https://goo.gl/maps/h7NnBaDSxFXYx1fP6" target="_blank">Click Here for Address</a>
+                <p>Boulder County</p>
                 </div>`
-            },
-{
-                location:{lat: 41.10141193, lng: -80.77462499},
+            }
+            ,
+            {
+                location:{lat: 39.56718029694562, lng: -105.53719019299754},
                 content:`<div class="pt-4 pb-3">
-                <p>6000 Mahoning Ave<br>Youngstown, OH 44515</p>
-                <a href="https://goo.gl/maps/7td1bvopJx3WBMXy8" target="_blank">Click Here for Address</a>
+                <p>Jefferson County</p>
                 </div>`
-            },
-{
-                location:{lat: 40.1105499, lng: -76.71404549},
+            }
+            ,
+            {
+                location:{lat: 39.365551491854596, lng: -105.01406272556181},
                 content:`<div class="pt-4 pb-3">
-                <p>15 Pennsylvania ave<br>York Haven, PA 17370</p>
-                <a href="https://goo.gl/maps/jFczUgY7SResHYpw5" target="_blank">Click Here for Address</a>
+                <p>Douglas County</p>
                 </div>`
-            },
-{
-                location:{lat: 42.91082275, lng: -85.69581253},
+            }
+            ,
+            {
+                location:{lat: 39.56190909301069, lng: -105.10112204635874},
                 content:`<div class="pt-4 pb-3">
-                <p>2929 Michael Ave SW<br>Wyoming, MI 49509</p>
-                <a href="https://goo.gl/maps/UnvbxpvzQMNnxx8JA" target="_blank">Click Here for Address</a>
+                <p>Arapahoe County</p>
                 </div>`
-            },
-{
-                location:{lat: 39.45391081, lng: -99.09887563},
+            }
+            ,
+            {
+                location:{lat: 40.26962488702729, lng: -103.8020369316658},
                 content:`<div class="pt-4 pb-3">
-                <p>508 Main Street<br>Woodston, KS 67675</p>
-                <a href="https://goo.gl/maps/pmiSiUJxFUjcGM2v7" target="_blank">Click Here for Address</a>
+                <p>Morgan County</p>
                 </div>`
-            },
-{
-                location:{lat: 35.77289429, lng: -80.58597027},
+            }
+            ,
+            {
+                location:{lat: 40.833866006753055, lng: -103.83161219245657},
                 content:`<div class="pt-4 pb-3">
-                <p>4220 Potneck Rd<br>Woodleaf, NC 27054</p>
-                <a href="https://goo.gl/maps/7qecYe3nRTMrdwyQ7" target="_blank">Click Here for Address</a>
+                <p>Logan County</p>
                 </div>`
-            },
-{
-                location:{lat: 33.78009287, lng: -89.0516948},
+            }
+            ,
+            {
+                location:{lat: 39.99652322315774, lng: -103.22716167969601},
                 content:`<div class="pt-4 pb-3">
-                <p>109 Market St<br>Woodland, MS 39776</p>
-                <a href="https://goo.gl/maps/aou9W3uffaQmx7iA8" target="_blank">Click Here for Address</a>
+                <p>Washington County</p>
                 </div>`
-            },
-{
-                location:{lat: 41.12566472, lng: -84.85669246},
+            }
+            ,
+            {
+                location:{lat: 40.021461008359246, lng: -102.44889277343778},
                 content:`<div class="pt-4 pb-3">
-                <p>22133 Main St<br>Woodburn, IN 46797</p>
-                <a href="https://goo.gl/maps/dR2cVHUCzMDJmC5J6" target="_blank">Click Here for Address</a>
+                <p>Yuma County</p>
                 </div>`
-            },
-{
-                location:{lat: 48.49991869, lng: -99.70487676},
+            }
+            ,
+            {
+                location:{lat: 40.59041201135185, lng: -102.3206773746202},
                 content:`<div class="pt-4 pb-3">
-                <p>201 3rd Ave N<br>Wolford, ND 58385</p>
-                <a href="https://goo.gl/maps/ZgDVDdN43DQnic1B8" target="_blank">Click Here for Address</a>
+                <p>Phillips County</p>
                 </div>`
-            },
-{
-                location:{lat: 41.40404142, lng: -94.8908262},
+            }
+            ,
+            {
+                location:{lat: 40.88262895458922, lng: -102.37469843986578},
                 content:`<div class="pt-4 pb-3">
-                <p>405 Pioneer Ave<br>Wiota, IA 50274</p>
-                <a href="https://goo.gl/maps/xwUtKt39gXojunSz9" target="_blank">Click Here for Address</a>
+                <p>Sedgwick County</p>
                 </div>`
-            },
-{
-                location:{lat: 32.73848652, lng: -114.6355844},
+            }
+            ,
+            {
+                location:{lat: 39.88103858291775, lng: -104.32197277360218},
                 content:`<div class="pt-4 pb-3">
-                <p>2127 Winterhaven Drive<br>Winterhaven, CA 92283</p>
-                <a href="https://goo.gl/maps/gAMxn5f1gKRuCGrJA" target="_blank">Click Here for Address</a>
+                <p>Adams County</p>
                 </div>`
-            },
-{
-                location:{lat: 33.91103847, lng: -90.74994167},
+            }
+            ,
+            {
+                location:{lat: 39.92269213810083, lng: -105.08202923157928},
                 content:`<div class="pt-4 pb-3">
-                <p>300 E Winston St<br>Winstonville, MS 38781</p>
-                <a href="https://goo.gl/maps/nKzC6iBsBB9TsnAZ7" target="_blank">Click Here for Address</a>
+                <p>Broomfield County</p>
                 </div>`
-            },
-{
-                location:{lat: 38.2110206, lng: -81.52952893},
+            }
+            ,
+            {
+                location:{lat: 38.81552241321197, lng: -102.57319621778669},
                 content:`<div class="pt-4 pb-3">
-                <p>303 Fields Creek Rd<br>Winifrede, WV 25214</p>
-                <a href="https://goo.gl/maps/CU4b4ofF8NB1Nhb66" target="_blank">Click Here for Address</a>
+                <p>Cheyenne County</p>
                 </div>`
-            },
-{
-                location:{lat: 42.07576941, lng: -75.64920873},
+            }
+            ,
+            {
+                location:{lat: 38.98466130284379, lng: -103.48973716177119},
                 content:`<div class="pt-4 pb-3">
-                <p>652 Old Route 17<br>Windsor, NY 13865</p>
-                <a href="https://goo.gl/maps/gtttMoNxWWvaUz937" target="_blank">Click Here for Address</a>
+                <p>Lincoln County</p>
                 </div>`
-            },
-{
-                location:{lat: 41.53572495, lng: -80.9334099},
+            }
+            ,
+            {
+                location:{lat: 40.69498898757395, lng: -106.3020965672491},
                 content:`<div class="pt-4 pb-3">
-                <p>5103 State Route 322<br>Windsor, OH 44099</p>
-                <a href="https://goo.gl/maps/xxzG1CMeLx2yTSFBA" target="_blank">Click Here for Address</a>
+                <p>Jackson County</p>
                 </div>`
-            },
-{
-                location:{lat: 45.99731976, lng: -110.6607024},
+            }
+            ,
+            {
+                location:{lat: 40.1279521630236, lng: -106.11219114775578},
                 content:`<div class="pt-4 pb-3">
-                <p>310 Elliot St N<br>Wilsall, MT 59086</p>
-                <a href="https://goo.gl/maps/dEzwsGXFsZz8wmHA6" target="_blank">Click Here for Address</a>
+                <p>Grand County</p>
                 </div>`
-            },
-{
-                location:{lat: 41.73704602, lng: -87.86942873},
+            }
+            ,
+            {
+                location:{lat: 39.69830902647619, lng: -105.6872172322019},
                 content:`<div class="pt-4 pb-3">
-                <p>8448 Archer Ave<br>Willow Springs, IL 60480</p>
-                <a href="https://goo.gl/maps/6WFLF32tdbMZ3bYd6" target="_blank">Click Here for Address</a>
+                <p>Clear Creek County</p>
                 </div>`
-            },
-{
-                location:{lat: 29.38823084, lng: -82.44868136},
+            }
+            ,
+            {
+                location:{lat: 39.1314317224736, lng: -105.76684730928415},
                 content:`<div class="pt-4 pb-3">
-                <p>29 NW 1st Ave<br>Williston, FL 32696</p>
-                <a href="https://goo.gl/maps/YoGpj3NoYzSs919k8" target="_blank">Click Here for Address</a>
+                <p>Park County</p>
                 </div>`
-            },
-{
-                location:{lat: 37.5155744, lng: -75.80611303},
+            }
+            ,
+            {
+                location:{lat: 39.32570771296275, lng: -104.14847540160054},
                 content:`<div class="pt-4 pb-3">
-                <p>4457 Willis Wharf Rd<br>Willis Wharf, VA 23486</p>
-                <a href="https://goo.gl/maps/BcAbkEJFUvPwdxX2A" target="_blank">Click Here for Address</a>
+                <p>Elbert County</p>
                 </div>`
-            },
-{
-                location:{lat: 40.28869989, lng: -87.2926422},
+            }
+            ,
+            {
+                location:{lat: 38.842645677492165, lng: -104.56597190389216},
                 content:`<div class="pt-4 pb-3">
-                <p>115 East 2nd Street<br>Williamsport, IN 47993</p>
-                <a href="https://goo.gl/maps/SnUwRmCBSswkNDdz5" target="_blank">Click Here for Address</a>
+                <p>El Paso County</p>
                 </div>`
-            },
-{
-                location:{lat: 48.63249986, lng: -103.1844997},
+            }
+            ,
+            {
+                location:{lat: 38.25244401868309, lng: -104.6018762122677},
                 content:`<div class="pt-4 pb-3">
-                <p>507 Main St<br>Wildrose, ND 58795</p>
-                <a href="https://goo.gl/maps/LRzk2CnXyDqF9jSe7" target="_blank">Click Here for Address</a>
+                <p>Pueblo County</p>
                 </div>`
-            },
-{
-                location:{lat: 36.96523782, lng: -89.08991283},
-                content:`<div class="pt-4 pb-3">
-                <p>330 Court Street<br>Wickliffe, KY 42087</p>
-                <a href="https://goo.gl/maps/MpUB3GYRQQEzWs2E9" target="_blank">Click Here for Address</a>
-                </div>`
-            },
-{
-                location:{lat: 46.98588463, lng: -104.1885776},
-                content:`<div class="pt-4 pb-3">
-                <p>211 S Wibaux Street<br>Wibaux, MT 59353</p>
-                <a href="https://goo.gl/maps/ibkKzgCSn9tVbWxB6" target="_blank">Click Here for Address</a>
-                </div>`
-            },
-{
-                location:{lat: 35.44356844, lng: -100.2745605},
-                content:`<div class="pt-4 pb-3">
-                <p>507 S. Candian St<br>Wheeler, TX 79096</p>
-                <a href="https://goo.gl/maps/3ky4yLQzAKqhHCCb9" target="_blank">Click Here for Address</a>
-                </div>`
-            },
-{
-                location:{lat: 37.89752314, lng: -81.67133893},
-                content:`<div class="pt-4 pb-3">
-                <p>35665 Pond Fork Rd<br>Wharton, WV 25208</p>
-                <a href="https://goo.gl/maps/UWyQMo7sXgu1TvbEA" target="_blank">Click Here for Address</a>
-                </div>`
-            },
-{
-                location:{lat: 41.71029579, lng: -72.6621899},
-                content:`<div class="pt-4 pb-3">
-                <p>67 Beaver Road<br>Wethersfield, CT 6109</p>
-                <a href="https://goo.gl/maps/6raTEy8dsQwJhHK97" target="_blank">Click Here for Address</a>
-                </div>`
-            },
-{
-                location:{lat: 40.75265094, lng: -78.6698127},
-                content:`<div class="pt-4 pb-3">
-                <p>103 Church<br>Westover, PA 16692</p>
-                <a href="https://goo.gl/maps/BMVnCiaj9HBas1kT7" target="_blank">Click Here for Address</a>
-                </div>`
-            },
-{
-                location:{lat: 48.91021306, lng: -101.0206984},
-                content:`<div class="pt-4 pb-3">
-                <p>180 Main St<br>Westhope, ND 58793</p>
-                <a href="https://goo.gl/maps/WZhhhzaWHTZuGXbW8" target="_blank">Click Here for Address</a>
-                </div>`
-            },
-{
-                location:{lat: 42.58046898, lng: -71.48887143},
-                content:`<div class="pt-4 pb-3">
-                <p>5 W Prescott St<br>Westford, MA 1886</p>
-                <a href="https://goo.gl/maps/mNnw1i9fe7Zhvj588" target="_blank">Click Here for Address</a>
-                </div>`
-            },
-{
-                location:{lat: 43.88612146, lng: -89.49299607},
-                content:`<div class="pt-4 pb-3">
-                <p>108 E 2nd Street<br>Westfield, WI 53964</p>
-                <a href="https://goo.gl/maps/g5KLnNf5FuWr43fs5" target="_blank">Click Here for Address</a>
-                </div>`
-            },
+            }
         ]
 
         // for loop
