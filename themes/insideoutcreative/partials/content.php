@@ -161,7 +161,7 @@ echo '</section>';
         // Setup this post for WP functions (variable must be named $post).
         setup_postdata($post);
         $pagesCounter++;
-        echo '<a href="' . get_the_permalink() . '" class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
+        echo '<a href="' . get_the_permalink() . '" class="col-lg-3 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
         echo '<div class="position-relative pt-3 pl-5 pr-5 h-100">';
 
         echo '<div class="hover-box bg-accent position-absolute w-100 h-100 z-1 d-flex align-items-center justify-content-center" style="border:3px solid white;top:0;left:0;transition:all .25s ease-in-out;">';
