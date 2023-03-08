@@ -179,7 +179,7 @@ echo '</section>';
 
         echo '<div class="position-relative pb-3 h-100">';
         echo '<span class="h1 blair-light mb-5 d-block" style="font-size:50px;">' . sprintf("%02d", $pagesCounter) . '</span>';
-        echo '<div class="d-flex align-items-center">';
+        echo '<div class="d-flex">';
         echo '<div style="height: 35px;
         width: 35px;
         border: 1px solid #3373f1;
@@ -187,7 +187,11 @@ echo '</section>';
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        margin-right: 15px;">';
+        margin-right: 15px;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 35px;
+        flex: 0 0 35px;
+        max-width: 35px;">';
         echo '<span class="plus-sign">&plus;</span>';
         echo '</div>';
         echo '<div>';
@@ -259,7 +263,7 @@ echo '</section>';
 
 
     if(have_rows('testimonials')):
-    echo '<div class="testimonial-carousel owl-carousel owl-theme arrows-middle">';
+    echo '<div class="testimonial-carousel owl-carousel owl-theme">';
     while(have_rows('testimonials')): the_row();
     echo '<div class="position-relative pl-5" style="color:#acacac;">';
 
