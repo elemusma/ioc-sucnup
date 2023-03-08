@@ -116,7 +116,7 @@ if($contentSide == 'Right'){
             echo '</div>';
         endif;
 
-        echo '<div class="col-md-7">';
+        echo '<div class="col-md-7 pt-md-0 pt-5">';
         echo '<div class="position-relative" style="border:4px solid white;border-radius:4px;box-shadow:0px 2px 5px rgba(0,0,0,.5);background:#ebebeb;">';
         echo wp_get_attachment_image($mainImg['id'],'full','',['class'=>'w-100 h-100','style'=>'']);
         echo '</div>';
