@@ -110,3 +110,14 @@
 } */
 
 /* end of services */
+
+/* start of content pages */
+.gallery-content-carousel,
+.owl-stage-outer,
+.owl-stage,
+.owl-item,
+.owl-item .overflow-h {
+  height: 100%;
+}
+
+/* end of content pages */

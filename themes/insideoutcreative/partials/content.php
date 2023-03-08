@@ -111,7 +111,7 @@ if($contentSide == 'Right'){
             $link_title = $link['title'];
             $link_target = $link['target'] ? $link['target'] : '_self';
             echo '<div class="col-lg-3 col-md-5">';
-            echo '<a class="btn-main w-100 text-center" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" style="transform:translate(0px, 20px);">' . esc_html( $link_title ) . '</a>';
+            echo '<a class="btn-main w-100 text-center d-block" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" style="transform:translate(0px, 20px);">' . esc_html( $link_title ) . '</a>';
 
             echo '</div>';
         endif;
@@ -298,7 +298,10 @@ if( $gallery ):
         echo '<div class="overflow-h">';
         // echo '<div class="position-relative">';
         echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" data-title="' . $image['title'] . '">';
-        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 h-100 img-portfolio'] );
+        echo wp_get_attachment_image($image['id'], 'full','',[
+            'class'=>'w-100 h-100 img-portfolio',
+            'style'=>'object-fit:cover;'
+        ] );
         echo '</a>';
         // echo '</div>';
         echo '</div>';
